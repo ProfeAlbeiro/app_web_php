@@ -14,6 +14,48 @@
         private $user_movil;
         private $user_email;
         private $user_profession;
+        private $user_pass;
+        private $user_status;
+
+        // Sobrecarga de Constructores
+        public function __construct(){
+            try {
+                // $this->dbh = DataBase::connection();
+                $a = func_get_args();
+                $i = func_num_args();
+                if (method_exists($this, $f = '__construct' . $i)) {
+                    call_user_func_array(array($this, $f), $a);
+                }
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }            
+        }
+
+        // Constructor de 0 parámetros (inicio sesión)
+        public function __construct0(){}
+
+        // Constructor de 2 parámetros (inicio sesión)
+        public function __construct2($user_email,$user_pass){        
+            $this->user_email = $user_email;
+            $this->user_pass = $user_pass;        
+        }
+
+        public function __construct14($user_id,$user_lastname,$user_name,$user_birthday,$user_gender,$user_maritalstatus,$user_age,$user_address,$user_localphone,$user_movil,$user_email,$user_profession,$user_pass,$user_status){        
+            $this->user_id = $user_id;
+            $this->user_lastname = $user_lastname;
+            $this->user_name = $user_name;
+            $this->user_birthday = $user_birthday;
+            $this->user_gender = $user_gender;
+            $this->user_maritalstatus = $user_maritalstatus;
+            $this->user_age = $user_age;
+            $this->user_address = $user_address;
+            $this->user_localphone = $user_localphone;
+            $this->user_movil = $user_movil;
+            $this->user_email = $user_email;
+            $this->user_profession = $user_profession;
+            $this->user_pass = $user_pass;        
+            $this->user_status = $user_status;
+        }
 
         // Métodos setter y getter
 
@@ -114,6 +156,20 @@
         }
         public function getUserProfession(){
            return $this->user_profession;
+        }
+        # Suscriptor: Contraseña
+        public function setUserPass($user_pass){
+            $this->user_pass = $user_pass;            
+        }
+        public function getUserPass(){
+           return $this->user_pass;
+        }
+        # Suscriptor: Estado
+        public function setUserStatus($user_status){
+            $this->user_status = $user_status;            
+        }
+        public function getUserStatus(){
+           return $this->user_status;
         }
 
     }
