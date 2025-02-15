@@ -73,13 +73,6 @@
         public function getUserLastName(){
            return $this->user_lastname;
         }
-        # Suscriptor: Apellido
-        public function setUserLastName($user_lastname){
-            $this->user_lastname = $user_lastname;            
-        }
-        public function getUserLastName(){
-           return $this->user_lastname;
-        }
         # Suscriptor: Nombre
         public function setUserName($user_name){
             $this->user_name = $user_name;            
@@ -137,13 +130,6 @@
            return $this->user_movil;
         }
         # Suscriptor: Correo
-        public function setUserEmail($user_email){
-            $this->user_email = $user_email;            
-        }
-        public function getUserEmail(){
-           return $this->user_email;
-        }
-        # Suscriptor: Profesión
         public function setUserEmail($user_email){
             $this->user_email = $user_email;            
         }
