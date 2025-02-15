@@ -67,6 +67,13 @@
            return $this->user_id;
         }
         # Suscriptor: Apellido
+        public function setLastName($user_lastname){
+            $this->user_lastname = $user_lastname;            
+        }
+        public function getUserLastName(){
+           return $this->user_lastname;
+        }
+        # Suscriptor: Apellido
         public function setUserLastName($user_lastname){
             $this->user_lastname = $user_lastname;            
         }
