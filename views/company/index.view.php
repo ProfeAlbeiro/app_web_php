@@ -7,5 +7,6 @@
 </head>
 <body>
     <h1>Soy la página inicial de la Empresa</h1>
+    <a href="?c=Landing&a=register">Iniciar Sesión</a>
 </body>
 </html>

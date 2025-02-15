@@ -10,19 +10,19 @@
         public function user_create(){
             $suscriptor = new Suscriptor(
                 null,
-                "Ramos",
-                "Albeiro",
-                "1870-05-01",
-                "masculino",
-                "vamo a ver",
-                20,
-                "Av. siempre viva",
-                "123456789",
-                "987645213",
-                "profealbeiro2020@gmail.com",
-                "peligro",
-                md5("12345"),
-                1,
+                $_POST["apellido"],
+                $_POST["nombre"],
+                $_POST["fecha"],
+                $_POST["genero"],
+                $_POST["estado_m"],
+                $_POST["edad"],
+                $_POST["direccion"],
+                $_POST["telefono"],
+                $_POST["celular"],
+                $_POST["mail"],
+                $_POST["profesion"],
+                $_POST["pass"],
+                $_POST["estado"]
             );
             print_r($suscriptor);
         }
