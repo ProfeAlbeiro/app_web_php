@@ -8,9 +8,23 @@
         
         // Usuario: Registrar
         public function user_create(){
-            $suscriptor = new Suscriptor;
-            $suscriptor->setLastName("Ramos");
-            echo "<br>Apellido: " . $suscriptor->getUserLastName();
+            $suscriptor = new Suscriptor(
+                null,
+                "Ramos",
+                "Albeiro",
+                "1870-05-01",
+                "masculino",
+                "vamo a ver",
+                20,
+                "Av. siempre viva",
+                "123456789",
+                "987645213",
+                "profealbeiro2020@gmail.com",
+                "peligro",
+                md5("12345"),
+                1,
+            );
+            print_r($suscriptor);
         }
 
         // Usuario: Consultar
