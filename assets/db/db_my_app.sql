@@ -22,6 +22,7 @@ USE `db_my_app` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_my_app`.`SUSCRIPTORS` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
+  `user_rol` INT NOT NULL,
   `user_lastname` VARCHAR(100) NOT NULL,
   `user_name` VARCHAR(45) NOT NULL,
   `user_birthday` VARCHAR(45) NOT NULL,
@@ -32,6 +33,8 @@ CREATE TABLE IF NOT EXISTS `db_my_app`.`SUSCRIPTORS` (
   `user_localphone` VARCHAR(45) NOT NULL,
   `user_email` VARCHAR(45) NOT NULL,
   `user_profession` VARCHAR(45) NOT NULL,
+  `user_pass` VARCHAR(200) NOT NULL,
+  `user_status` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`user_id`))
 ENGINE = InnoDB;
 

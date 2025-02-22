@@ -6,8 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Soy la página inicial de la Empresa</h1>
-    <a href="#">Iniciar Sesión</a>
-    <a href="?c=Landing&a=register">Regristrate</a>
+    <h1>Oiga, buen trabajo!!!!</h1>
 </body>
 </html>

@@ -10,6 +10,7 @@
         public function user_create(){
             $suscriptor = new Suscriptor(
                 null,
+                $_POST["rol"],
                 $_POST["apellido"],
                 $_POST["nombre"],
                 $_POST["fecha"],
@@ -24,7 +25,9 @@
                 $_POST["pass"],
                 $_POST["estado"]
             );
-            print_r($suscriptor);
+            // print_r($suscriptor);
+            $suscriptor->create_user();
+            header("Location: ?c=Landing&a=goodJob");
         }
 
         // Usuario: Consultar

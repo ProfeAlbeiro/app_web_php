@@ -9,6 +9,10 @@
     <a href="?">Regresar</a>
     <form action="?c=Users&a=user_create" method="POST">
         <div>
+            <label for="">Rol</label>
+            <input type="text" name="rol" placeholder="rol">
+        </div>
+        <div>
             <label for="">Apellido</label>
             <input type="text" name="apellido" placeholder="Apellido">
         </div>
@@ -54,7 +58,7 @@
         </div>
         <div>
             <label for="">Contraseña</label>
-            <input type="text" name="pass" placeholder="Contraseña">
+            <input type="password" name="pass" placeholder="Contraseña">
         </div>
         <div>
             <label for="">Estado</label>

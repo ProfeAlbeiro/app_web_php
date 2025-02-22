@@ -2,7 +2,9 @@
 
     class Suscriptor{
         // Atributos
+        private $dbh;
         private $user_id;
+        private $user_rol;
         private $user_lastname;
         private $user_name;
         private $user_birthday;
@@ -20,7 +22,7 @@
         // Sobrecarga de Constructores
         public function __construct(){
             try {
-                // $this->dbh = DataBase::connection();
+                $this->dbh = DataBase::connection();
                 $a = func_get_args();
                 $i = func_num_args();
                 if (method_exists($this, $f = '__construct' . $i)) {
@@ -40,8 +42,9 @@
             $this->user_pass = $user_pass;        
         }
 
-        public function __construct14($user_id,$user_lastname,$user_name,$user_birthday,$user_gender,$user_maritalstatus,$user_age,$user_address,$user_localphone,$user_movil,$user_email,$user_profession,$user_pass,$user_status){        
+        public function __construct15($user_id,$user_rol,$user_lastname,$user_name,$user_birthday,$user_gender,$user_maritalstatus,$user_age,$user_address,$user_localphone,$user_movil,$user_email,$user_profession,$user_pass,$user_status){        
             $this->user_id = $user_id;
+            $this->user_rol = $user_rol;
             $this->user_lastname = $user_lastname;
             $this->user_name = $user_name;
             $this->user_birthday = $user_birthday;
@@ -65,6 +68,13 @@
         }
         public function getUserId(){
            return $this->user_id;
+        }
+        # Suscriptor: Id
+        public function setUserRol($user_rol){
+            $this->user_rol = $user_rol;            
+        }
+        public function getUserRol(){
+           return $this->user_rol;
         }
         # Suscriptor: Apellido
         public function setLastName($user_lastname){
@@ -156,6 +166,47 @@
         }
         public function getUserStatus(){
            return $this->user_status;
+        }
+
+        // Persistencia a la base de datos
+        # RF04_CU04 - Registrar Suscriptor
+        public function create_user(){
+            try {
+                $sql = 'INSERT INTO SUSCRIPTORS VALUES (
+                    :userId,
+                    :rolUser,
+                    :userLastName,
+                    :userName,
+                    :userBirthday,
+                    :userGender,
+                    :userMarital,
+                    :userAge,
+                    :userAddress,
+                    :userLocalphone,
+                    :userEmail,
+                    :userProfession,
+                    :userPass,
+                    :userStatus
+                )';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('userId', $this->getUserId());
+                $stmt->bindValue('rolUser', $this->getUserRol());
+                $stmt->bindValue('userLastName', $this->getUserLastName());
+                $stmt->bindValue('userName', $this->getUserName());
+                $stmt->bindValue('userBirthday', $this->getUserBirthday());
+                $stmt->bindValue('userGender', $this->getUserGender());
+                $stmt->bindValue('userMarital', $this->getUserMaritalStatus());
+                $stmt->bindValue('userAge', $this->getUserAge());
+                $stmt->bindValue('userAddress', $this->getUserAddress());
+                $stmt->bindValue('userLocalphone', $this->getUserLocalPhone());
+                $stmt->bindValue('userEmail', $this->getUserEmail());
+                $stmt->bindValue('userProfession', $this->getUserProfession());
+                $stmt->bindValue('userPass', sha1($this->getUserPass()));
+                $stmt->bindValue('userStatus', $this->getUserStatus());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
         }
 
     }
