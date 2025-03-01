@@ -1,0 +1,18 @@
+form input[type="text"]:focus:required:invalid,
+form input[type="email"]:focus:required:invalid,
+form input[type="password"]:focus:required:invalid,
+textarea:focus:invalid{
+	border: 2px solid red;
+}
+form input[type="text"]:focus:required:valid,
+form input[type="email"]:focus:required:valid,
+form input[type="password"]:focus:required:valid,
+textarea:focus:valid{
+	border: 2px solid green;
+}
+form input[type="text"]:required:valid,
+form input[type="email"]:required:valid,
+form input[type="password"]:required:valid,
+textarea:required:valid{
+	border: 2px solid green;
+}
